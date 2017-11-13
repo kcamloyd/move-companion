@@ -12,8 +12,8 @@ function loadData() {
     $nytElem.text("");
 
     // load streetview
-
-    // YOUR CODE GOES HERE!
+    var $streetVal = $('#street').val();
+    var $cityVal = $('#city').val();
 
     return false;
 };
