@@ -1,6 +1,5 @@
-Moving Companion App
-Made with [Udacity](https://www.udacity.com/)
-Course - [Intro to Ajax](https://www.udacity.com/course/intro-to-ajax--ud110)
+Moving Companion App made with [Udacity](https://www.udacity.com/)
+course - [Intro to Ajax](https://www.udacity.com/course/intro-to-ajax--ud110)
 
 Uses asynchronous requests to Google Maps, NYTimes, and Wikipedia APIs to display information about an address.
 
