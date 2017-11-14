@@ -1,4 +1,5 @@
-
+ /* Starter code provided in Udacity's Intro to Ajax course -
+    see README.md for details */
 function loadData() {
 
     var body = $('body');
