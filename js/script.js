@@ -22,7 +22,7 @@ function loadData() {
 
     $('body').append('<img class=bgimg src="' + linkText + '">');
 
-    // load NYTimes Articles
+    // load NYTimes articles
     var nytimesUrl = 'https://api.nytimes.com/svc/search/v2/' +
       'articlesearch.json?q=' + cityVal +
       '&sort=newest&api-key=121c1052355a426487938844b906a199';
@@ -41,6 +41,28 @@ function loadData() {
       };
     }).fail(function() {
       nytHeaderElem.text('New York Times articles could not be loaded');
+    });
+
+    // load Wikipedia links
+    var wikipediaURL = 'https://en.wikipedia.org/w/api.php?action=opensearch' +
+      '&search=' + cityVal + '&format=json';
+
+    $.ajax({
+      url: wikipediaURL,
+      dataType: 'jsonp',
+      success: function(response) {
+        var links = response[1];
+        for (var i = 0; i<links.length; i++) {
+          var link = links[i];
+          wikiElem.append('<li>' +
+            '<a href="https://en.wikipedia.org/wiki/' + link + '">' +
+              link +
+            '</a>' +
+          '</li>');
+        };
+      }
+    }).fail(function() {
+      wikiElem.append('<p>Wikipedia links could not be loaded</p>');
     });
 
     return false;
