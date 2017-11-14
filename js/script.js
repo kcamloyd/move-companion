@@ -30,12 +30,13 @@ function loadData() {
     $.getJSON(nytimesUrl, function(data){
       nytHeaderElem.text('New York Times articles about ' + cityVal);
 
-      articles = data.response.docs;
+      var articles = data.response.docs;
       for (var i = 0; i<articles.length; i++) {
         var article = articles[i];
         nytElem.append('<li class="article">' +
-          '<a href="' + article.web_url + '">' + article.headline.main +
-            '</a>' +
+          '<a href="' + article.web_url + '" target=blank>' +
+            article.headline.main +
+          '</a>' +
           '<p>' + article.snippet + '</p>' +
         '</li>');
       };
@@ -55,7 +56,7 @@ function loadData() {
         for (var i = 0; i<links.length; i++) {
           var link = links[i];
           wikiElem.append('<li>' +
-            '<a href="https://en.wikipedia.org/wiki/' + link + '">' +
+            '<a href="https://en.wikipedia.org/wiki/' + link + '" target=blank>' +
               link +
             '</a>' +
           '</li>');
